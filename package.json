@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "(git://github.com/roerdinkholder/dndwm.git)"
+    "url": "(https://github.com/roerdinkholder/dndwm.git)"
   },
   "author": "Hans Roerdinkholder",
   "license": "ISC"
