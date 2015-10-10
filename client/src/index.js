@@ -1,5 +1,6 @@
+// Vendor
 import React from 'react';
-import { createStore } from 'redux';
+import ReactDOM from 'react-dom';;
 import { Provider, connect } from 'react-redux';
 
 class RootComponent extends React.Component {
@@ -11,20 +12,6 @@ class RootComponent extends React.Component {
         );
     }
 }
-
-const someAction = {
-    type: 'some'
-};
-
-function reducer(state = {}, action) {
-    switch(action.type){
-        default:
-            return state;
-    }
-}
-
-// Store:
-let store = createStore(reducer);
 
 // Map Redux state to component props
 function mapStateToProps(state)  {
@@ -46,4 +33,4 @@ let Root = connect(
     mapDispatchToProps
 )(RootComponent);
 
-React.render(<Provider store={store}><Root /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><Root /></Provider>, document.getElementById('root'));
