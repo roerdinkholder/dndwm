@@ -1,0 +1,16 @@
+{
+  "name": "dndwm",
+  "version": "0.0.1",
+  "description": "Dungeons & Dragons World Manager",
+  "main": "index.js",
+  "scripts": {
+    "host": "node node_modules/webpack/bin/webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(git://github.com/roerdinkholder/dndwm.git)"
+  },
+  "author": "Hans Roerdinkholder",
+  "license": "ISC"
+}
