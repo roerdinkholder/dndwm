@@ -1,6 +1,6 @@
-import { ADD_USER, MODIFY_USER, REMOVE_USER } from './../core/actionTypes';
+import { ADD_USER, MODIFY_USER, REMOVE_USER } from '../core/actionTypes';
 
-let nextUserId = 0;
+let nextUserId = 0; // TODO: This should be in state (I think)
 
 let addUser = (state, properties) => {
     return [
