@@ -1,5 +1,4 @@
-# Dungeons & Dragons
-##### World Manager
+# Dungeons & Dragons World Manager
 
 ##### To initialize the project, run the following commands:
 * npm install
