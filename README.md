@@ -1,9 +1,9 @@
-#### To initialize the project, run the following commands:
+###### To initialize the project, run the following commands:
 * npm install
 
 * * *
 
-#### To build the project, run the following command:
+##### To build the project, run the following command:
 * npm run build
 
 * * *
