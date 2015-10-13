@@ -10,13 +10,13 @@ const reducer = combineReducers({
     users: userService
 });
 
-/*const finalCreateStore = compose(
+const finalCreateStore = compose(
     applyMiddleware(thunkMiddleware),
     devTools(),
     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
-)(createStore);*/
+)(createStore);
 
-const finalCreateStore = applyMiddleware(thunkMiddleware)(createStore);
+//const finalCreateStore = applyMiddleware(thunkMiddleware)(createStore);
 
 let store = finalCreateStore(reducer);
 

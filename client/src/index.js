@@ -16,10 +16,10 @@ let RootComponent = applyComponentDefaults(React.createClass({
         this.props.onLogin('Hans', 'Demo1234');
     },
     handleAddUser(e) {
-        e.preventDefault();
+        e.nativeEvent.preventDefault();
         const node = findDOMNode(this.refs.userName);
         const text = node.value.trim();
-        if (name.length) {
+        if (text.length) {
             this.props.onAddUser({
                 name: text
             });
@@ -97,6 +97,9 @@ let RootComponent = applyComponentDefaults(React.createClass({
                 </div>
                 <div style={bodyStyle}>
                     {content}
+                    <DebugPanel top right bottom>
+                        <DevTools store={store} monitor={LogMonitor} />
+                    </DebugPanel>
                 </div>
             </div>
         );

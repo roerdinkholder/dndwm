@@ -40,7 +40,7 @@ function authLoginError(state, error) {
     });
 }
 
-export default function userService(state = initialState, action) {
+export default function userService(state = initialState, action = { type: null }) {
     switch(action.type){
         case AUTH_LOGIN:
             return authLogin(state, action.accountName, action.password);

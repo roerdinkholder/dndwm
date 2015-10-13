@@ -42,7 +42,7 @@ let removeUser = (state, userId) => {
         });
 };
 
-export default function userService(state = initialState, action) {
+export default function userService(state = initialState, action = { type: null }) {
     switch(action.type){
         case ADD_USER:
             return addUser(state, action.properties);
