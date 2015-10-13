@@ -1,6 +1,11 @@
+@background-color-default: #FFFBD0;
+@background-color-header: #CC6600;
+@background-color-extreme: #993300;
+@text-color-default: #000000;
+
 body {
-  background-color: #FFFBD0;
-  color: #000000;
+  background-color: @background-color-default;
+  color: @text-color-default;
   font-family: Georgia, sans-serif;
 }
 
@@ -8,11 +13,12 @@ h1, h2, h3 {
   color: #739240;
   font-family: Tangerine, cursive;
 }
+
 .header {
-  border-bottom: 1px solid #993300;
+  border-bottom: 1px solid @background-color-extreme;
 
   h1, h2, h3 {
-    color: #FFFBD0;
+    color: @background-color-default;
     display: inline-block;
     margin: 0;
   }
@@ -35,6 +41,7 @@ a {
     text-decoration: underline;
   }
 }
+
 ul {
   margin: 0;
   padding: 0 0 0 20px;
@@ -49,14 +56,15 @@ ul {
     }
   }
 }
+
 form {
-  border: 1px solid #CC6600;
+  border: 1px solid @background-color-header;
   border-radius: 10px;
   width: 250px;
 
   h1 {
-    background-color: #CC6600;
-    color: #FFFBD0;
+    background-color: @background-color-header;
+    color: @background-color-default;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin: 0;
@@ -71,7 +79,7 @@ form {
 
 input[type="text"] {
   background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid #993300;
+  border: 1px solid @background-color-extreme;
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 3px;
@@ -91,24 +99,29 @@ input[type="submit"], button {
   font-size: 0.8em;
   border: none;
   border-radius: 5px;
-  background: #993300;
-  color: #FFFBD0;
+  background: @background-color-extreme;
+  color: @background-color-default;
 }
+
 input:hover, input:focus, button:hover, button:focus {
   outline: none;
 }
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-  color: rgba(153, 51, 0, 0.3);
+.placeholder-color(@r, @g, @b, @a) {
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: rgba(@r, @g, @b, @a);
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: rgba(@r, @g, @b, @a);
+    opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: rgb(@r, @g, @b);
+    opacity:  @a;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgba(@r, @g, @b, @a);
+  }
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color: rgba(153, 51, 0, 0.3);
-  opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color: rgb(153, 51, 0);
-  opacity:  0.3;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: rgba(153, 51, 0, 0.3);
-}
+
+.placeholder-color(153, 51, 0, 0.3);

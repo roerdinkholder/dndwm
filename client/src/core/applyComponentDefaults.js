@@ -45,5 +45,5 @@ export default function applyComponentDefaults(Component) {
             return <Component {...this.props} {...this.state} />;
         }
     });
-    return Component;//ComponentWithDefaults;
+    return ComponentWithDefaults;
 }

@@ -16,8 +16,6 @@ const finalCreateStore = compose(
     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
 )(createStore);
 
-//const finalCreateStore = applyMiddleware(thunkMiddleware)(createStore);
-
 let store = finalCreateStore(reducer);
 
 export default store;

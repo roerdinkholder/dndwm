@@ -2,13 +2,21 @@
   "name": "dndwm",
   "version": "0.0.1",
   "description": "Dungeons & Dragons World Manager",
-  "main": "client/src/index.js",
+  "main": "",
   "scripts": {
     "clean": "rimraf client/dist",
     "build-js": "node node_modules/webpack/bin/webpack --optimize-minimize",
     "build-css": "lessc --clean-css client/src/index.less client/dist/style.min.css",
     "build": "npm run clean & npm run build-css & npm run build-js",
-    "test": "jest"
+    "test": "jest",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "build-css": {
+      "patterns": "client/src/*.less",
+      "extensions": "less"
+    },
+    "build-js": "client/src/*.js"
   },
   "jest": {
     "scriptPreprocessor": "preprocessor.js",
@@ -39,6 +47,7 @@
     "jest-cli": "^0.5.10",
     "less": "^2.5.3",
     "less-plugin-clean-css": "^1.5.1",
+    "npm-watch": "0.0.1",
     "redux-devtools": "^2.1.5",
     "rimraf": "^2.4.3"
   }
