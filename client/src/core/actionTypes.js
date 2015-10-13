@@ -1,3 +1,8 @@
+export const AUTH_LOGIN = 'AUTH_LOGIN';
+export const AUTH_LOGIN_SUCCESS = 'AUTH_LOGIN_SUCCESS';
+export const AUTH_LOGIN_FAILURE = 'AUTH_LOGIN_FAILURE';
+export const AUTH_LOGIN_ERROR = 'AUTH_LOGIN_ERROR';
+
 export const ADD_USER = 'ADD_USER';
 export const MODIFY_USER = 'MODIFY_USER';
 export const REMOVE_USER = 'REMOVE_USER';

@@ -10,8 +10,13 @@ describe('userService', function () {
                 type: 'ADD_USER',
                 properties: properties
             },
-            result = userService([], action),
-            expectedResult = [Object.assign({}, properties, { id: 0 })];
+            result = userService(undefined, action),
+            expectedResult = Object.assign({}, {
+                nextUserId: 1,
+                list: [
+                    Object.assign({}, properties, { id: 0 })
+                ]
+            });
 
         expect(result).toEqual(expectedResult);
     });
@@ -25,9 +30,15 @@ describe('userService', function () {
                 type: 'ADD_USER',
                 properties: properties
             },
-            intermediateResult = userService([], action),
+            intermediateResult = userService(undefined, action),
             result = userService(intermediateResult, action),
-            expectedResult = [Object.assign({}, properties, { id: 0 }), Object.assign({}, properties, { id: 1 })];
+            expectedResult = Object.assign({}, {
+                nextUserId: 2,
+                list: [
+                    Object.assign({}, properties, { id: 0 }),
+                    Object.assign({}, properties, { id: 1 })
+                ]
+            });
 
         expect(result).toEqual(expectedResult);
     });
@@ -41,13 +52,16 @@ describe('userService', function () {
                 type: 'ADD_USER',
                 properties: properties
             },
-            intermediateResult = userService([], addAction),
+            intermediateResult = userService(undefined, addAction),
             removeAction = {
                 type: 'REMOVE_USER',
-                userId: intermediateResult[0].id
+                userId: intermediateResult.list[0].id
             },
             result = userService(intermediateResult, removeAction),
-            expectedResult = [];
+            expectedResult = Object.assign({}, {
+                nextUserId: 1,
+                list: []
+            });
 
         expect(result).toEqual(expectedResult);
     });
@@ -61,9 +75,9 @@ describe('userService', function () {
                 type: 'ADD_USER',
                 properties: initialProperties
             },
-            intermediateResult = userService([], addAction),
+            intermediateResult = userService(undefined, addAction),
             modifiedProperties = {
-                id: intermediateResult[0].id,
+                id: intermediateResult.list[0].id,
                 name: 'Modified User'
             },
             modifyAction = {
@@ -71,7 +85,12 @@ describe('userService', function () {
                 properties: modifiedProperties
             },
             result = userService(intermediateResult, modifyAction),
-            expectedResult = [Object.assign({}, modifiedProperties)];
+            expectedResult = Object.assign({}, {
+                nextUserId: 1,
+                list: [
+                    Object.assign({}, modifiedProperties)
+                ]
+            });
 
         expect(result).toEqual(expectedResult);
     });
