@@ -27,18 +27,6 @@ export default function applyComponentDefaults(Component) {
         shouldComponentUpdate(nextProps, nextState) {
             let returnValue = !shallowEqual(this.props, nextProps) ||
                 !shallowEqual(this.state, nextState);
-            console.log(
-                'shouldComponentUpdate for component:',
-                this,
-                'with props, nextProps:',
-                this.props,
-                nextProps,
-                'and state, nextState:',
-                this.state,
-                nextState,
-                'returns:',
-                returnValue
-            );
             return returnValue;
         },
         render() {
