@@ -5,7 +5,8 @@
   "main": "",
   "scripts": {
     "clean": "rimraf client/dist",
-    "build-js": "node node_modules/webpack/bin/webpack --optimize-minimize",
+    "build-js": "node node_modules/webpack/bin/webpack",
+    "build-min-js": "node node_modules/webpack/bin/webpack --optimize-minimize",
     "build-css": "lessc --clean-css client/src/index.less client/dist/style.min.css",
     "build": "npm run clean & npm run build-css & npm run build-js",
     "test": "jest",

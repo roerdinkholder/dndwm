@@ -14,7 +14,7 @@ module.exports = {
     },
     output: {
         path: './client/dist',
-        filename: 'bundle.min.js'
+        filename: 'bundle.js'
     },
     plugins: [
         new CompressionPlugin({
